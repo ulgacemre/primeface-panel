@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui" xmlns:h="http://xmlns.jcp.org/jsf/html" >
+
+    <ul class="sidebar-menu tree" data-widget="tree" >
+        <li>
+            <p:link outcome="/index" onclick="clearBreadCrumbs()">
+                <i class="fa fa-home"></i>
+                <span>Anasayfa</span>
+            </p:link>
+        </li>
+
+        <li>
+            <p:link outcome="/veri-envanteri" onclick="clearBreadCrumbs()">
+                <i class="fa fa-book" aria-hidden="true"></i>
+                <span>Veri Envanteri</span>
+            </p:link>
+        </li>
+
+        <li>
+            <p:link outcome="/veri-ihlali" onclick="clearBreadCrumbs()">
+                <i class="fa fa-file" aria-hidden="true"></i>
+
+                <span>Veri İhlali</span>
+            </p:link>
+        </li>
+
+        <li>
+            <p:link outcome="/ayarlar" onclick="clearBreadCrumbs()">
+                <i class="fa fa-cog" aria-hidden="true"></i>
+                <span>Ayarlar</span>
+            </p:link>
+        </li>
+
+        <li>
+            <p:link outcome="/car-list">
+                <i class="fa fa-car"></i>
+                <span>Cars</span>
+            </p:link>
+        </li>
+
+    </ul>
+
+</ui:composition>

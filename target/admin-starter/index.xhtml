@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                template="#{layoutMB.template}"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                >
+
+    <ui:param name="renderBreadCrumb" value="false"/>
+
+    <ui:define name="title"  style="margin-left:50px">
+
+        <div class="col-sm-12 col-md-9">
+        <h1 >Dashboard</h1>
+        <h2 class="align-left">
+            <small>
+                <p:link  href="http://primefaces.org"/>
+                <p:link  style="font-size:17px; color:black;" value="Follow at a glance the evolution of your GDPR compliance project efforts! The compliance status of your key business  support departments are summarized here.
+"  href="http://getbootstrap.com/"/>
+            </small>
+
+
+
+
+        </h2>
+            <p:lightBox id="lighbox2" style="width:200px">
+                <h:outputLink value="#">
+                    <i class="fa fa-play-circle-o"  style="font-size:40px" aria-hidden="true"></i>  <p style="position: relative;
+  top: -30px;
+  left: 45px;"> Videoyu Oynat</p>
+                </h:outputLink>
+
+                <f:facet name="inline">
+                    <p:media value="https://vimeo.com/311983548"  width="800" height="525" player="flash" />
+                </f:facet>
+            </p:lightBox>
+
+        </div>
+
+        <div class="col-sm-12 col-md-3">
+            <p:panel style="padding:20px" >
+                <p  style="text-align:center">  <i class="fa fa-envelope" aria-hidden="true"></i></p>
+
+                <p>Yardıma ihtiyacınız varsa bizimle iletişime geçin.</p>
+            <p:commandButton value="İletişime Geçin" id="withIconBig"
+                           iconPos="right" styleClass="btn-lg btn-white btn-block"
+                             ignoreAutoUpdate="true"/>
+            </p:panel>
+        </div>
+
+
+    </ui:define>
+    <ui:define name="body">
+
+
+        <section class="content-header" style="padding-left: 0px; margin-left:1em">
+
+
+        </section>
+        <p:spacer height="15px"/>
+        <div class="row">
+            <div class="col-md-6 col-sm-6 col-xs-12">
+                <a href="#">
+                <div class="info-box" >
+                    <span class="info-box-icon bg-aqua"><i class="fa fa-plus" aria-hidden="true"></i>
+</span>
+
+                    <div class="info-box-content" >
+                        <span class="info-box-text">Veri Envanteri Yok</span>
+                        <span class="info-box-number">Oluştur</span>
+                        <span class="info-box-number">0</span>
+                    </div>
+                    <!-- /.info-box-content -->
+                </div>
+                </a>
+                <!-- /.info-box -->
+            </div>
+            <!-- /.col -->
+            <div class="col-md-6 col-sm-6 col-xs-12">
+                <a href="#">
+                <div class="info-box">
+                    <span class="info-box-icon bg-red"><i class="fa fa-history" aria-hidden="true"></i>
+</span>
+
+                    <div class="info-box-content">
+                        <span class="info-box-text">Son Aktivitelerim</span>
+                        <span class="info-box-number">Veri Oluşturma</span>
+                        <span class="info-box-number">20</span>
+                    </div>
+                    <!-- /.info-box-content -->
+                </div>
+                <!-- /.info-box -->
+                </a>
+            </div>
+            <!-- /.col -->
+
+            <!-- fix for small devices only -->
+            <div class="clearfix visible-sm-block"></div>
+
+
+        </div>
+        <!-- /.row -->
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="box">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">Veri Grafikleri</h3>
+
+                        <div class="box-tools pull-right">
+                            <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                            </button>
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-box-tool dropdown-toggle" data-toggle="dropdown">
+                                    <i class="fa fa-wrench"></i></button>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a href="#">Action</a></li>
+                                    <li><a href="#">Another action</a></li>
+                                    <li><a href="#">Something else here</a></li>
+                                    <li class="divider"></li>
+                                    <li><a href="#">Separated link</a></li>
+                                </ul>
+                            </div>
+                            <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                        </div>
+                    </div>
+                    <!-- /.box-header -->
+                    <div class="box-body" style="display: block;">
+                        <div class="row">
+                            <div class="col-md-6 center" style="height:600px;align:center">
+                                <p class="text-center">
+                                    <strong>Veri Envanteri</strong>
+                                </p>
+
+
+                                <div align="center">
+                                    <p:chart type="line" seriesColors="FB5E09" model="#{lineChartBean.lineModel}" style="height:400px;width:600px;background:none;"/>
+
+                                </div>
+
+
+
+                                <!-- /.chart-responsive -->
+                            </div>
+
+                            <div class="col-md-6 center" style="height:600px;align:center">
+                                <p class="text-center">
+                                    <strong>Veri İhlali</strong>
+                                </p>
+
+
+                                <div align="center">
+
+                                    <p:chart type="bar" model="#{chartView.barModel}" style="width:600px;height:400px">
+
+                                    </p:chart>
+
+
+
+                                </div>
+
+
+
+                                <!-- /.chart-responsive -->
+                            </div>
+
+
+
+
+
+                        </div>
+                        <!-- /.row -->
+                    </div>
+                    <!-- ./box-body -->
+
+
+                </div>
+                <!-- /.box -->
+            </div>
+            <!-- /.col -->
+        </div>
+
+
+
+
+
+
+
+
+
+        <!-- /.row -->
+        <h:outputScript library="js" name="chart.min.js"/>
+        <script type="text/javascript">
+//<![CDATA[
+$(function () {
+
+    'use strict';
+
+    /* ChartJS
+     * -------
+     * Here we will create a few charts using ChartJS
+     */
+
+    //-----------------------
+    //- MONTHLY SALES CHART -
+    //-----------------------
+
+    // Get context with jQuery - using jQuery's .get() method.
+    var salesChartCanvas = $("#salesChart").get(0).getContext("2d");
+    // This will get the first returned node in the jQuery collection.
+    var salesChartData = {
+        labels: ["January", "February", "March", "April", "May", "June", "July"],
+        datasets: [
+            {
+                label: "Electronics",
+                fillColor: "rgb(210, 214, 222)",
+                strokeColor: "rgb(210, 214, 222)",
+                pointColor: "rgb(210, 214, 222)",
+                pointStrokeColor: "#c1c7d1",
+                pointHighlightFill: "#fff",
+                pointHighlightStroke: "rgb(220,220,220)",
+                data: [65, 59, 80, 81, 56, 55, 40]
+            },
+            {
+                label: "Digital Goods",
+                fillColor: "rgba(60,141,188,0.9)",
+                strokeColor: "rgba(60,141,188,0.8)",
+                pointColor: "#3b8bba",
+                pointStrokeColor: "rgba(60,141,188,1)",
+                pointHighlightFill: "#fff",
+                pointHighlightStroke: "rgba(60,141,188,1)",
+                data: [28, 48, 40, 19, 86, 27, 90]
+            }
+        ]
+    };
+
+
+
+    //Create the line chart
+    createLineChart(salesChartCanvas,salesChartData);
+
+    //---------------------------
+    //- END MONTHLY SALES CHART -
+    //---------------------------
+
+
+});
+//]]>
+</script>
+
+
+    </ui:define>
+</ui:composition>

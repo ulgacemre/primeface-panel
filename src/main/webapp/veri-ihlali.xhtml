@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                template="#{layoutMB.template}"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+>
+
+    <ui:param name="renderBreadCrumb" value="false"/>
+
+    <ui:define name="title">
+        <h2 class="align-left">
+            Veri İhlali
+        </h2>
+
+    </ui:define>
+    <ui:define name="body">
+
+
+        <section class="content-header" style="padding-left: 0px">
+            <h1>Body
+                <small> <a href="https://almsaeedstudio.com/themes/AdminLTE/index2.html" target="_blank"></a></small>
+            </h1>
+        </section>
+        <p:spacer height="15px"/>
+
+
+
+        <!-- /.row -->
+        <h:outputScript library="js" name="chart.min.js"/>
+
+
+    </ui:define>
+</ui:composition>

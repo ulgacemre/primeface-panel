@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:pe="http://primefaces.org/ui/extensions">
+
+    <style type="text/css">
+        #layout-menu_menu {
+            z-index: 9997!important;
+        }
+        #layout-menu_menu span.ui-menuitem-text {
+            margin-left: 2px;
+        }
+
+    </style>
+    <ul class="nav navbar-nav" style="background:#fff !important" >
+        <li class="">
+            <h:form prependId="false">
+                <p:menuButton value="Hesap Seç" style="margin:10px 10px 0 0 " id="layout-menu">
+                    <p:menuitem value="Hesap-1 (default)" disabled="#{layoutMB.leftMenuTemplate}" ajax="false" icon="fa fa-list-ul"/>
+                    <p:menuitem value="Hesap-2" disabled="#{not layoutMB.leftMenuTemplate}" ajax="false" icon="fa fa-credit-card"/>
+                    <p:menuitem value="Hesap-3" disabled="#{not layoutMB.leftMenuTemplate}"  ajax="false" icon="fa fa-credit-card"/>
+
+                </p:menuButton>
+            </h:form>
+        </li>
+        <li class="dropdown user user-menu" style="background:#fff !important">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+
+                <pe:gravatar id="userImage"
+                             value="nonexisting"/>
+                <span class="">#{logonMB.currentUser}</span>
+
+            </a>
+            <ul class="dropdown-menu" style="background:#fff !important">
+                <li class="user-header" style="background:#fff !important">
+                    <div class="">
+                        <pe:gravatar style="border-radius: 50%"
+                                     value="rmpestano@gmail.com"/>
+                    </div>
+                    <p style="color:#000">
+                        #{logonMB.currentUser}
+                        <small>Subtitle</small>
+                    </p>
+                </li>
+                <li class="user-footer" style="background:#fff !important">
+                    <h:form prependId="false">
+
+                         <li>Hesabım</li>
+                        <hr></hr>
+                        <li>Parola Değiştir</li>
+                        <hr></hr>
+                        <li>Hesap Ekle</li>
+                        <hr></hr>
+                        <li>Üyelik</li>
+                    </h:form>
+                </li>
+            </ul>
+        </li>
+        <li>
+        </li>
+
+    </ul>
+
+</ui:composition>
