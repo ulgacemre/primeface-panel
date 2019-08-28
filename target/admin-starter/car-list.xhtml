@@ -6,7 +6,7 @@
                 template="#{layoutMB.template}">
     
     <ui:define name="metadata">
-        <ui:param name="title" value="Car listing"/> <!-- Automatic create breadCrumb and page title when param 'title' is provided. --> 
+        <ui:param name="title" value="Kullanıcılar"/> <!-- Automatic create breadCrumb and page title when param 'title' is provided. -->
         
         <style type="text/css">
             .ui-datatable .ui-datatable-header {
@@ -16,7 +16,7 @@
     </ui:define>
 
     <ui:define name="description">
-        Find cars by name, price and model
+
     </ui:define>
 
     <ui:define name="body">
@@ -26,17 +26,17 @@
                 <div class="box-header with-border">
                     <div id="main-buttons" class="hidden-sm hidden-xs">
                         <p:commandButton action="/car-form?faces-redirect=true" icon="fa fa-plus"
-                                         value="New" styleClass="btn-primary"/>
+                                         value="Ekle" styleClass="btn-primary"/>
                         <p:spacer width="5"/>
-                        <p:commandButton value="Delete Selected" icon="fa fa-trash" styleClass="btn-danger"
+                        <p:commandButton value="Sil" icon="fa fa-trash" styleClass="btn-danger"
                                          action="#{carListMB.delete}"
                                          disabled="#{empty carListMB.selectedCars or carListMB.selectedCars.size() == 0}"
                                          process="@this" update="@form"
                                          >
-                            <p:confirm header="Confirmation" message="Are you sure?" icon="ui-icon-danger"/>
+                            <p:confirm header="Onay" message="Emin misin?" icon="ui-icon-danger"/>
                         </p:commandButton>
                         <p:spacer width="5"/>
-                        <p:commandButton value="View selected" update="@(.ui-dialog)" styleClass="btn-info"
+                        <p:commandButton value="Göster" update="@(.ui-dialog)" styleClass="btn-info"
                                          disabled="#{empty carListMB.selectedCars or carListMB.selectedCars.size() == 0}"
                                          oncomplete="PF('selectedCars').show()" icon="fa fa-search"/>
                     </div>
@@ -86,7 +86,7 @@
                         </f:facet>
                         <p:column selectionMode="multiple" width="5%" styleClass="align-center"/>
 
-                        <p:column headerText="Model" filterBy="#{c.model}" sortBy="#{c.model}"
+                        <p:column headerText="İsim" filterBy="#{c.model}" sortBy="#{c.model}"
                                   filterMatchMode="contains">
                             <f:facet name="filter">
                                 <p:autoComplete value="#{carListMB.filter.entity.model}" forceSelection="true"
@@ -101,7 +101,7 @@
                             </p:link>
 
                         </p:column>
-                        <p:column headerText="Name" sortBy="#{c.name}" filterBy="#{c.name}">
+                        <p:column headerText="Soyisim" sortBy="#{c.name}" filterBy="#{c.name}">
                             <f:facet name="filter">
                                 <p:inputText value="#{carListMB.filter.entity.name}">
                                     <p:ajax process="@this" update="@none" oncomplete="PF('carsTable').filter()"/>
@@ -109,7 +109,17 @@
                             </f:facet>
                             #{c.name}
                         </p:column>
-                        <p:column headerText="Price" sortBy="#{c.price}" filterBy="#{c.price}">
+
+                        <p:column headerText="Email" sortBy="#{c.price}" filterBy="#{c.price}">
+                            <f:facet name="filter">
+                                <p:spinner value="#{carListMB.filter.entity.price}">
+                                    <f:converter converterId="javax.faces.Double"/>
+                                    <p:ajax process="@this" update="@none" oncomplete="PF('carsTable').filter()"/>
+                                </p:spinner>
+                            </f:facet>
+                            #{c.price}
+                        </p:column>
+                        <p:column headerText="Şirket" sortBy="#{c.price}" filterBy="#{c.price}">
                             <f:facet name="filter">
                                 <p:spinner value="#{carListMB.filter.entity.price}">
                                     <f:converter converterId="javax.faces.Double"/>
@@ -122,9 +132,9 @@
                 </div>
             </div>
             <p:confirmDialog global="true" showEffect="fade" hideEffect="fade" styleClass="box-danger box-solid">
-                <p:commandButton value="Yes" type="button" styleClass="btn-material btn-primary ui-confirmdialog-yes"
+                <p:commandButton value="Evet" type="button" styleClass="btn-material btn-primary ui-confirmdialog-yes"
                                  icon="fa fa-check"/>
-                <p:commandButton value="No" type="button" styleClass="btn-material btn-danger ui-confirmdialog-no"
+                <p:commandButton value="Hayır" type="button" styleClass="btn-material btn-danger ui-confirmdialog-no"
                                  icon="fa fa-close"/>
             </p:confirmDialog>
         </h:form>

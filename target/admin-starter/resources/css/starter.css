@@ -10,10 +10,14 @@
 }
 
 body {
-font-family: Courier New Peninim MT,Helvetica,Arial,sans-serif;
-font-weight: 400;
+font-family: 'Georgia','Georgia',Helvetica,Arial,sans-serif;
+font-weight: 500;
 overflow-x: hidden;
 overflow-y: auto;
+}
+
+div.wrapper {
+font-family: "Courier New","Courier New","Courier New",Helvetica,Arial,sans-serif;
 }
 
 

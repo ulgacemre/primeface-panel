@@ -13,7 +13,7 @@
         <ui:param name="renderFormAsterisks" value="true"/>
     </ui:define>
     <ui:define name="title">
-        Car form
+        Kullanıcı Ekle
     </ui:define>
     <ui:define name="body">
         <adm:breadcrumb title="#{empty carFormMB.id ? 'New Car' : 'Car '.concat(carFormMB.id)}" link="/car-form.jsf?id=#{carFormMB.id}"/>
@@ -21,10 +21,10 @@
             <p:focus context="@form"/>
             <p:panel styleClass="box-primary card">
                 <div id="main-buttons" class="hidden-sm hidden-xs">
-                    <p:commandButton value="Save" action="#{carFormMB.save}" update="@form"
+                    <p:commandButton value="Kaydet" action="#{carFormMB.save}" update="@form"
                                      icon="fa fa-check" styleClass="btn-primary"/>
                     <p:spacer width="5" rendered="#{carFormMB.isNew()}"/>
-                    <p:commandButton value="Clear" action="#{carFormMB.clear}" process="@this"
+                    <p:commandButton value="Temizle" action="#{carFormMB.clear}" process="@this"
                                      icon="fa fa-refresh" styleClass="btn-success"
                                      update="@form" rendered="#{carFormMB.isNew()}" resetValues="true"/>
                     <p:spacer width="5" rendered="#{not carFormMB.isNew()}"/>
@@ -37,7 +37,7 @@
                         <p:confirm header="Confirmation" message="Are you sure?" icon="ui-icon-danger"/>
                     </p:commandButton>
                     <p:spacer width="5"/>
-                    <p:commandButton value="Back" immediate="true"
+                    <p:commandButton value="Geri" immediate="true"
                                      action="car-list?faces-redirect=true"
                                      process="@this"
                                      icon="fa fa-reply"/>
@@ -62,21 +62,11 @@
 
                 <hr/>
 
-                <div class="ui-g ui-fluid">
-                    <div class="ui-sm-12 ui-g-6 ui-g-nopad"> 
+                <div class="ui-g ui-fluid" style="padding-left:100px;padding-right:100px; padding-top:50px; padding-bottom:50px;">
+
+                    <div class="ui-sm-12 ui-g-4 ui-g-nopad">
                         <div class="ui-sm-12 ui-g-11">
-                            <p:outputLabel for="id" value="ID"/>
-                        </div>
-                        <div class="ui-sm-12 ui-g-11" >
-                            <p:inputText id="id" value="#{carFormMB.car.id}" readonly="true" styleClass="form-control ui-state-disabled" style="width: 100%"/>
-                            <span class="help-block"> 
-                                <p:message for="id" /> 
-                            </span> 
-                        </div>
-                    </div> 
-                    <div class="ui-sm-12 ui-g-6 ui-g-nopad"> 
-                        <div class="ui-sm-12 ui-g-11">
-                            <p:outputLabel value="Model" for="inptModel"/>
+                            <p:outputLabel value="İsim" for="inptModel"/>
                         </div>
                         <div class="ui-sm-12 ui-g-11" >
                             <p:inputText id="inptModel" value="#{carFormMB.car.model}" required="true"/>
@@ -85,28 +75,60 @@
                             </span> 
                         </div>
                     </div>     
-                    <div class="ui-sm-12 ui-g-6 ui-g-nopad">     
+                    <div class="ui-sm-12 ui-g-4 ui-g-nopad">
+                    <div class="ui-sm-12 ui-g-11">
+                        <p:outputLabel value="Soyisim" for="inptName"/>
+                    </div>
+                    <div class="ui-sm-12 ui-g-11" >
+                        <p:inputText id="inptName" value="#{carFormMB.car.name}" required="true"/>
+                        <span class="help-block">
+                                <p:message for="inptName" />
+                            </span>
+                    </div>
+                </div>
+
+                    <div class="ui-sm-12 ui-g-4 ui-g-nopad">
                         <div class="ui-sm-12 ui-g-11">
-                            <p:outputLabel value="Name" for="inptName"/>
+                            <p:outputLabel value="Şirket" for="inptName"/>
                         </div>
                         <div class="ui-sm-12 ui-g-11" >
-                            <p:inputText id="inptName" value="#{carFormMB.car.name}" required="true"/>
-                            <span class="help-block"> 
-                                <p:message for="inptName" /> 
+                            <p:selectOneMenu id="city" value="#{dropdownView.city}" >
+                                <f:selectItem itemLabel="Şirket Seçiniz" itemValue="" noSelectionOption="true" />
+                                <f:selectItems value="Deneme" />
+                            </p:selectOneMenu>
+                            <span class="help-block">
+
                             </span>
                         </div>
-                    </div>     
-                    <div class="ui-sm-12 ui-g-6 ui-g-nopad">     
+                    </div>
+
+
+                    <div class="ui-sm-12 ui-g-6 ui-g-nopad">
+                    <div class="ui-sm-12 ui-g-11">
+                        <p:outputLabel value="Email" for="inptPrice"/>
+                    </div>
+                    <div class="ui-sm-12 ui-g-11" >
+                        <p:inputText id="inptPrice" value="" required="true"/>
+                        <span class="help-block">
+                                <p:message for="inptPrice" />
+                            </span>
+                    </div>
+                </div>
+
+                    <div class="ui-sm-12 ui-g-6 ui-g-nopad">
                         <div class="ui-sm-12 ui-g-11">
-                            <p:outputLabel value="Price" for="inptPrice"/>
+                            <p:outputLabel value="Parola" for="inptPrice"/>
                         </div>
                         <div class="ui-sm-12 ui-g-11" >
-                            <p:inputNumber id="inptPrice" value="#{carFormMB.car.price}" required="true"/>
-                            <span class="help-block"> 
-                                <p:message for="inptPrice" /> 
+
+                            <span class="help-block">
+                                 <p:password id="feedback" value="" feedback="true" />
                             </span>
                         </div>
-                    </div> 
+                    </div>
+
+
+
                 </div>
                 <h:panelGroup id="footer" layout="block" styleClass="hidden-sm hidden-md hidden-lg">
                     <hr/>

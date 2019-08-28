@@ -9,7 +9,16 @@
 
 }
 
+body {
+font-family: 'Georgia','Georgia',Helvetica,Arial,sans-serif;
+font-weight: 500;
+overflow-x: hidden;
+overflow-y: auto;
+}
 
+div.wrapper {
+font-family: "Courier New","Courier New","Courier New",Helvetica,Arial,sans-serif;
+}
 
 
 #fade {
