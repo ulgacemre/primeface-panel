@@ -1,6 +1,7 @@
 package com.github.adminfaces.starter.util;
 
-import com.github.adminfaces.starter.model.Car;
+
+import com.github.adminfaces.starter.model.User;
 import org.omnifaces.util.Messages;
 
 import javax.annotation.PostConstruct;
@@ -18,18 +19,18 @@ import java.util.stream.IntStream;
 @ApplicationScoped
 public class Utils implements Serializable {
 
-    private List<Car> cars;
+    private List<User> users;
 
 
     @PostConstruct
     public void init() {
-        cars = new ArrayList<>();
+        users = new ArrayList<>();
         IntStream.rangeClosed(1, 50)
-                .forEach(i -> cars.add(create(i)));
+                .forEach(i -> users.add(create(i)));
     }
 
-    private static Car create(int i) {
-        return new Car(i).model("model " + i).name("name" + i).price(Double.valueOf(i));
+    private static User create(int i) {
+        return new User(i).model("model " + i).name("name" + i).price(Double.valueOf(i));
     }
 
     public static void addDetailMessage(String message) {
@@ -46,8 +47,8 @@ public class Utils implements Serializable {
     }
 
     @Produces
-    public List<Car> getCars() {
-        return cars;
+    public List<User> getCars() {
+        return users;
     }
 
 }

@@ -5,7 +5,10 @@
                 template="#{layoutMB.template}"
                 xmlns:h="http://java.sun.com/jsf/html"
                 xmlns:f="http://java.sun.com/jsf/core"
->
+                xmlns:sec="http://www.springframework.org/security/tags"
+                xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                xsi:schemaLocation="http://www.springframework.org/security/tags ">
+
 
     <ui:param name="renderBreadCrumb" value="false"/>
 
@@ -18,6 +21,7 @@
     <ui:define name="body">
 
 
+
         <section class="content-header" style="padding-left: 0px">
             <h1>Body
                 <small> <a href="https://almsaeedstudio.com/themes/AdminLTE/index2.html" target="_blank"></a></small>
@@ -25,6 +29,352 @@
         </section>
         <p:spacer height="15px"/>
 
+
+        <style type="text/css">
+.align-top {
+	vertical-align: top;
+}
+
+    </style>
+
+        <h:head>
+            <title>Envanter</title>
+        </h:head>
+
+
+        <h:body>
+            <!-- Rolü ekrana yazdırmak için eklendi. Testlerden sonra kaldır. -->
+            <div class="authorization-div">
+                <sec:authorize access="hasRole('ROLE_USER')">
+                    <p:outputLabel value="Rolünüz: Kullanıcı"/>
+                </sec:authorize>
+                <sec:authorize access="hasRole('ROLE_ADMIN')">
+                    <p:outputLabel value="Rolünüz: Admin"/>
+                </sec:authorize>
+            </div>
+
+            <h:form id="tst">
+                <!-- 	<p:panelGrid columns="2" layout="grid"> -->
+                <!-- 	<h3> Tamamlanma Yüzdesi:</h3> -->
+                <p:progressBar id="pb1" widgetVar="pbAjax" ajax="false"
+                               label=" Tamamlanma Yüzdesi:" process="@this"
+                               value="#{envanterBean.progressPercent}"
+                               labelTemplate="Tamamlanma Yüzdesi: {value}%" styleClass="animated"
+                               global="false">
+                    <p:ajax listener="#{envanterBean.onFlowProcess}" update="@this"/>
+                </p:progressBar>
+                <!-- 	</p:panelGrid> -->
+            </h:form>
+
+            <h:form>
+                <br/>
+                <p:growl id="growl" sticky="true" showDetail="true"/>
+                <p:wizard flowListener="#{envanterBean.onFlowProcess}"
+                          style="font-size:15px;" nextLabel="Sonraki" backLabel="Geri">
+
+                    <p:tab id="surec" title="Süreç">
+                        <p:panel header="SÜREÇ">
+                            <p:messages/>
+                            <p:panelGrid columns="1" cellpadding="4" style="width: 100%">
+
+                                <p:outputLabel for="departman" value="Departman:"/>
+                                <p:selectOneMenu id="departman" style="width:125px"
+                                                 value="#{envanterBean.islem.departman}">
+                                    <p:ajax listener="#{envanterBean.onDepartmanChange}"
+                                            update="surecSelectCheckboxMenu kisiGrubuPG"/>
+                                    <f:selectItem itemLabel="--Departman Seçiniz" itemValue=""
+                                                  noSelectionOption="true"/>
+                                    <f:selectItems value="#{envanterBean.departmanList}"/>
+                                </p:selectOneMenu>
+
+                                <p:outputLabel for="surecSelectCheckboxMenu" value="Süreç:"/>
+                                <p:selectCheckboxMenu id="surecSelectCheckboxMenu"
+                                                      value="#{envanterBean.islem.selectedSurecList}" multiple="true"
+                                                      filter="true" filterMatchMode="startsWith"
+                                                      panelStyle="width:250px">
+                                    <p:ajax update="kisiGrubuPG"/>
+                                    <f:selectItems value="#{envanterBean.surecList}"/>
+                                </p:selectCheckboxMenu>
+
+                            </p:panelGrid>
+
+                        </p:panel>
+
+                        <h:panelGroup id="kisiGrubuPG">
+                            <ui:repeat var="surec" varStatus="varStatus"
+                                       value="#{envanterBean.islem.selectedSurecListObj}">
+                                <p:panel id="kisiGrubuPanel"
+                                         header="#{surec.surecAdi} süreci için veri konusu kişi grubu seçiniz.."
+                                         toggleable="true" toggleableHeader="true"
+                                         collapsed="#{varStatus.index!=0}">
+                                    <p:panelGrid columns="1" cellpadding="4" style="width: 100%">
+
+                                        <p:selectManyCheckbox id="veriSahibiCheckBox"
+                                                              value="#{surec.selectedVeriSahibi}" layout="responsive"
+                                                              columns="2">
+                                            <f:selectItems value="#{envanterBean.veriSahibiList}"
+                                                           var="veriSahibiList" itemLabel="#{veriSahibiList.ad}"
+                                                           itemValue="#{veriSahibiList}"/>
+                                        </p:selectManyCheckbox>
+
+                                    </p:panelGrid>
+                                </p:panel>
+                            </ui:repeat>
+                        </h:panelGroup>
+                    </p:tab>
+
+                    <p:tab id="veri" title="Veri">
+                        <!-- TODO: Veri seçildikçe üst kategorileri topla bir tabloda göster -->
+                        <ui:repeat var="surec" varStatus="varStatus"
+                                   value="#{envanterBean.islem.selectedSurecListObj}">
+                            <p:panel
+                                    header="#{surec.surecAdi} süreci için işlenen verileri seçiniz.."
+                                    toggleable="true" toggleableHeader="true"
+                                    collapsed="#{varStatus.index!=0}">
+                                <p:messages/>
+                                <p:panelGrid columns="2" cellpadding="4" style="width: 100%">
+
+                                    <p:selectManyCheckbox id="grid3" value="#{surec.selectedVeri}"
+                                                          layout="responsive" columns="3">
+                                        <f:selectItems value="#{envanterBean.veriList}" var="veriList"
+                                                       itemLabel="#{veriList}" itemValue="#{veriList}"/>
+                                    </p:selectManyCheckbox>
+
+                                </p:panelGrid>
+
+                            </p:panel>
+                        </ui:repeat>
+                    </p:tab>
+
+                    <p:tab id="amac" title="Amaç">
+
+                        <ui:repeat var="surec" varStatus="varStatus"
+                                   value="#{envanterBean.islem.selectedSurecListObj}">
+                            <p:panel
+                                    header="#{surec.surecAdi} için işleme Amaçlarını seçiniz.."
+                                    toggleable="true" toggleableHeader="true"
+                                    collapsed="#{varStatus.index!=0}">
+                                <p:panelGrid columns="1" cellpadding="4" style="width: 100%">
+
+                                    <p:selectManyCheckbox id="amaclarCheckBox"
+                                                          value="#{surec.selectedAmac}" layout="responsive" columns="2">
+                                        <f:selectItems value="#{envanterBean.amacList}" var="amacList"
+                                                       itemLabel="#{amacList.ad}" itemValue="#{amacList}"/>
+                                    </p:selectManyCheckbox>
+                                    <!--<p:separator style="background-color: red;border-color:red" /> -->
+                                </p:panelGrid>
+                            </p:panel>
+                        </ui:repeat>
+
+                        <ui:repeat var="surec" varStatus="varStatus"
+                                   value="#{envanterBean.islem.selectedSurecListObj}">
+                            <p:panel header="#{surec.surecAdi} için Hukuki Nedenleri seçiniz.."
+                                     toggleable="true" toggleableHeader="true"
+                                     collapsed="#{varStatus.index!=0}">
+                                <p:panelGrid columns="1" cellpadding="4" style="width: 100%">
+
+                                    <p:selectManyCheckbox id="hukukiNedenCheckBox"
+                                                          value="#{surec.selectedHukukiNeden}" layout="responsive"
+                                                          columns="2">
+                                        <f:selectItems value="#{envanterBean.hukukiNedenList}"
+                                                       var="hukukiNedenList" itemLabel="#{hukukiNedenList.ad}"
+                                                       itemValue="#{hukukiNedenList}"/>
+                                    </p:selectManyCheckbox>
+
+                                </p:panelGrid>
+                            </p:panel>
+                        </ui:repeat>
+                    </p:tab>
+
+                    <p:tab id="saklamaSuresi" title="Saklama ve İmha">
+                        <ui:repeat var="surec" varStatus="varStatus"
+                                   value="#{envanterBean.islem.selectedSurecListObj}">
+                            <p:panel header="#{surec.surecAdi} için Saklama Süresini seçiniz.."
+                                     toggleable="true" toggleableHeader="true"
+                                     collapsed="#{varStatus.index!=0}">
+                                <p:selectOneRadio id="saklamaSuresiRadio"
+                                                  value="#{surec.selectedSaklamaSuresi}" layout="grid" columns="1">
+                                    <f:selectItems value="#{envanterBean.saklamaSuresiList}"
+                                                   var="saklamaSuresiList" itemLabel="#{saklamaSuresiList}"
+                                                   itemValue="#{saklamaSuresiList}"/>
+                                </p:selectOneRadio>
+                            </p:panel>
+                        </ui:repeat>
+
+                        <!-- 				<p:separator style="background-color: red;border-color:red" /> -->
+
+                        <ui:repeat var="surec" varStatus="varStatus"
+                                   value="#{envanterBean.islem.selectedSurecListObj}">
+                            <p:panel header="#{surec.surecAdi} için İmha Metodu seçiniz.."
+                                     toggleable="true" toggleableHeader="true"
+                                     collapsed="#{varStatus.index!=0}">
+                                <p:selectOneRadio id="imhaMetoduRadio"
+                                                  value="#{surec.selectedImhaMetodu}" layout="grid" columns="1"
+                                                  immediate="true">
+                                    <f:selectItems value="#{envanterBean.imhaMetoduList}"
+                                                   var="imhaMetodu" itemLabel="#{imhaMetodu.ad}"
+                                                   itemValue="#{imhaMetodu.id}"/>
+                                </p:selectOneRadio>
+                            </p:panel>
+                        </ui:repeat>
+                    </p:tab>
+
+                    <p:tab id="aktarma" title="Aktarma">
+
+                        <ui:repeat var="surec" varStatus="varStatus"
+                                   value="#{envanterBean.islem.selectedSurecListObj}">
+                            <p:panel header="#{surec.surecAdi} için Alıcı seçiniz.."
+                                     toggleable="true" toggleableHeader="true"
+                                     collapsed="#{varStatus.index!=0}">
+                                <p:panelGrid columns="1" cellpadding="4" style="width: 100%">
+
+                                    <p:selectManyCheckbox id="alicilarCheckBox"
+                                                          value="#{surec.selectedAlicilar}" layout="responsive"
+                                                          columns="1">
+                                        <f:selectItems value="#{envanterBean.aliciList}" var="aliciList"
+                                                       itemLabel="#{aliciList.ad}" itemValue="#{aliciList}"/>
+                                    </p:selectManyCheckbox>
+
+                                </p:panelGrid>
+
+                            </p:panel>
+                        </ui:repeat>
+
+                        <ui:repeat var="surec" varStatus="varStatus"
+                                   value="#{envanterBean.islem.selectedSurecListObj}">
+                            <p:panel header="#{surec.surecAdi} için Yurtışı Aktarım">
+                                <p:panelGrid columns="2" cellpadding="4" style="width: 50%">
+                                    <h:outputText
+                                            value="#{surec.surecAdi} için yurtdışına aktarım yapılacak mı?"/>
+                                    <p:inputSwitch value="#{surec.yurtdisiAktarim}" onLabel="Evet"
+                                                   offLabel="Hayır">
+                                        <p:ajax update="ulkePanel"/>
+                                    </p:inputSwitch>
+                                </p:panelGrid>
+                                <p:panel id="ulkePanel" header="Ülke"
+                                         visible="#{surec.yurtdisiAktarim}">
+                                    <p:panelGrid columns="2" cellpadding="4" style="width: 100%">
+
+                                        <h:outputLabel for="ulkelerCkbox" value="Lütfen Ülke Seçiniz"/>
+                                        <p:selectCheckboxMenu id="ulkelerCkbox"
+                                                              value="#{surec.selectedUlkeler}" label="Ülkeler"
+                                                              multiple="true" filter="true" filterMatchMode="contains"
+                                                              style="width:250px;heigth:50px; font-size:13px"
+                                                              panelStyle="width:250px">
+                                            <f:selectItems value="#{envanterBean.ulkeList}" var="ulke" itemValue="#{ulke}"
+                                                           itemLabel="#{ulke.ad}"/>
+                                        </p:selectCheckboxMenu>
+
+                                    </p:panelGrid>
+
+                                </p:panel>
+                            </p:panel>
+
+                        </ui:repeat>
+
+                    </p:tab>
+
+                    <p:tab id="ozet" title="Ön İzleme">
+                        <ui:repeat var="surec" varStatus="varStatus"
+                                   value="#{envanterBean.islem.selectedSurecListObj}">
+                            <p:panel id="OzetTopPanel"
+                                     header="#{envanterBean.islem.departman} Departmanı #{surec.surecAdi} Süreci Özet">
+
+                                <p:panelGrid columns="2" cellpadding="4" style="width: 100%"
+                                             columnClasses="align-top, align-top">
+
+
+                                    <p:dataList value="#{surec.selectedVeri}" var="selectedVeri"
+                                                type="ordered">
+                                        <f:facet name="header">
+                                            Veri
+                                        </f:facet>
+                                        #{selectedVeri}
+                                    </p:dataList>
+
+                                    <p:dataList value="#{surec.selectedVeriSahibi}" var="veriSahibi"
+                                                type="ordered">
+                                        <f:facet name="header">
+                                            Veri Konusu Kişi Grubu
+                                        </f:facet>
+                                        #{veriSahibi.ad}
+                                    </p:dataList>
+
+                                </p:panelGrid>
+
+                                <!-- Amaç -->
+                                <p:panelGrid columns="2" cellpadding="4" style="width: 100% "
+                                             columnClasses="align-top, align-top">
+                                    <p:dataList value="#{surec.selectedAmac}" var="selectedAmac"
+                                                type="ordered">
+                                        <f:facet name="header">
+                                            Amaç
+                                        </f:facet>
+                                        #{selectedAmac.ad}
+                                    </p:dataList>
+
+                                    <p:dataList value="#{surec.selectedHukukiNeden}"
+                                                var="selectedHukukiNeden" type="ordered">
+                                        <f:facet name="header">
+                                            Hukuki Neden
+                                        </f:facet>
+                                        #{selectedHukukiNeden.ad}
+                                    </p:dataList>
+
+                                </p:panelGrid>
+
+                                <p:separator/>
+                                <p:panel columns="4">
+                                    <h:outputLabel for="saklamaSuresi" value="Saklama Süresi:"/>
+                                    <p:inputText id="saklamaSuresi"
+                                                 value="#{surec.selectedSaklamaSuresi}" readonly="true"/>
+                                    <h:outputLabel for="imhaMetodu" value="İmha Metodu:"/>
+                                    <p:inputText id="imhaMetodu" value="#{surec.selectedImhaMetoduObj.ad}"
+                                                 readonly="true"/>
+                                </p:panel>
+                                <p:separator/>
+
+                                <p:dataList value="#{surec.selectedAlicilar}"
+                                            var="selectedAlicilar" type="ordered">
+                                    <f:facet name="header">
+                                        Alıcılar
+                                    </f:facet>
+                                    #{selectedAlicilar.ad}
+                                </p:dataList>
+
+                                <p:panel columns="4">
+                                    <p:panel>
+                                        <h:outputLabel for="ydAktarim" value="Yurtdışı Aktarım"/>
+                                        <p:inputSwitch value="#{surec.yurtdisiAktarim}" onLabel="Evet"
+                                                       offLabel="Hayır" disabled="true" onblur="false"></p:inputSwitch>
+                                    </p:panel>
+                                    <p:panel visible="#{surec.yurtdisiAktarim}" style="width: 50% ">
+                                        <p:dataList value="#{surec.selectedUlkeler}"
+                                                    visible="#{surec.yurtdisiAktarim}" var="selectedUlkeler"
+                                                    type="ordered">
+                                            <f:facet name="header">
+                                                Aktarım Yapılacak Ülkeler
+                                            </f:facet>
+                                            #{selectedUlkeler.ad}
+                                        </p:dataList>
+                                    </p:panel>
+                                </p:panel>
+
+
+                            </p:panel>
+                        </ui:repeat>
+                        <h3>Buraya özet bilgi gelecek, çok da güzel olacak.</h3>
+                    </p:tab>
+
+                </p:wizard>
+            </h:form>
+            <br/>
+            <h:form onsubmit="this.action='#{request.contextPath}/logout';"
+                    class="logout-form">
+                <p:commandButton value="Logout" ajax="false"/>
+            </h:form>
+
+        </h:body>
 
 
         <!-- /.row -->

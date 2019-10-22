@@ -1,0 +1,385 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                template="#{layoutMB.template}"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+>
+
+    <ui:param name="renderBreadCrumb" value="false"/>
+
+    <ui:define name="title">
+        <h2 class="align-left">
+            Veri Güvenliği
+        </h2>
+
+    </ui:define>
+    <ui:define name="body">
+
+
+        <section class="content-header" style="padding-left: 0px">
+            <h2>Yönetim
+                <small> <a href="https://almsaeedstudio.com/themes/AdminLTE/index2.html" target="_blank"></a></small>
+            </h2>
+        </section>
+        <p:spacer height="15px"/>
+
+
+        <h:form id="form-1" prependId="false">
+            <p:focus context="@form"/>
+            <p:panel styleClass="box-primary card">
+                <div id="main-buttons" class="hidden-sm hidden-xs">
+
+                </div>
+
+                <p:separator/>
+                <div class="ui-g ui-fluid">
+
+                    <div class="ui-sm-12 ui-g-8 ui-g-nopad">
+                        <div class="ui-sm-12 ui-g-11">
+                            <p:outputLabel  value="1.Çalışanlar için veri güvenliği konusunda belli aralıklarla eğitim ve farkındalık çalışmaları yapılmaktadır. "/>
+                        </div>
+                        <div class="ui-sm-12 ui-g-11">
+
+
+                        </div>
+                    </div>
+                    <div class="ui-sm-12 ui-g-4 ui-g-nopad">
+                        <div class="ui-sm-12 ui-g-11">
+                            <p:inputSwitch value="#{selectBooleanView.value1}" />
+                        </div>
+                        <div class="ui-sm-12 ui-g-11">
+
+                        </div>
+                    </div>
+
+                </div>
+                <div class="ui-g ui-fluid">
+
+                    <div class="ui-sm-12 ui-g-8 ui-g-nopad">
+                        <div class="ui-sm-12 ui-g-11">
+                            <p:outputLabel  value="2.İmzalanan sözleşmeler veri güvenliği hükümleri içermektedir. "/>
+                        </div>
+                        <div class="ui-sm-12 ui-g-11">
+
+
+                        </div>
+                    </div>
+                    <div class="ui-sm-12 ui-g-4 ui-g-nopad">
+                        <div class="ui-sm-12 ui-g-11">
+                            <p:inputSwitch value="#{selectBooleanView.value1}" />
+                        </div>
+                        <div class="ui-sm-12 ui-g-11">
+
+                        </div>
+                    </div>
+
+                </div>
+                <div class="ui-g ui-fluid">
+
+                    <div class="ui-sm-12 ui-g-8 ui-g-nopad">
+                        <div class="ui-sm-12 ui-g-11">
+                            <p:outputLabel  value="3.Gizlilik taahhütnameleri yapılmaktadır. "/>
+                        </div>
+                        <div class="ui-sm-12 ui-g-11">
+
+
+                        </div>
+                    </div>
+                    <div class="ui-sm-12 ui-g-4 ui-g-nopad">
+                        <div class="ui-sm-12 ui-g-11">
+                            <p:inputSwitch value="#{selectBooleanView.value1}" />
+                        </div>
+                        <div class="ui-sm-12 ui-g-11">
+
+                        </div>
+                    </div>
+
+                </div>
+                <div class="ui-g ui-fluid">
+
+                    <div class="ui-sm-12 ui-g-8 ui-g-nopad">
+                        <div class="ui-sm-12 ui-g-11">
+                            <p:outputLabel  value="4.Çalışanlar için veri güvenliği hükümleri içeren disiplin düzenlemeleri mevcuttur. "/>
+                        </div>
+                        <div class="ui-sm-12 ui-g-11">
+
+
+                        </div>
+                    </div>
+                    <div class="ui-sm-12 ui-g-4 ui-g-nopad">
+                        <div class="ui-sm-12 ui-g-11">
+                            <p:inputSwitch value="#{selectBooleanView.value1}" />
+                        </div>
+                        <div class="ui-sm-12 ui-g-11">
+
+                        </div>
+                    </div>
+
+                </div>
+                <div class="ui-g ui-fluid">
+
+                    <div class="ui-sm-12 ui-g-8 ui-g-nopad">
+                        <div class="ui-sm-12 ui-g-11">
+                            <p:outputLabel  value="5.Görev değişikliği olan ya da işten ayrılan çalışanların bu alandaki yetkileri kaldırılmaktadır. "/>
+                        </div>
+                        <div class="ui-sm-12 ui-g-11">
+
+
+                        </div>
+                    </div>
+                    <div class="ui-sm-12 ui-g-4 ui-g-nopad">
+                        <div class="ui-sm-12 ui-g-11">
+                            <p:inputSwitch value="#{selectBooleanView.value1}" />
+                        </div>
+                        <div class="ui-sm-12 ui-g-11">
+
+                        </div>
+                    </div>
+
+                </div>
+                <div class="ui-g ui-fluid">
+
+                    <div class="ui-sm-12 ui-g-8 ui-g-nopad">
+                        <div class="ui-sm-12 ui-g-11">
+                            <p:outputLabel  value="6.Kişisel veri güvenliği politika ve prosedürleri belirlenmiştir. "/>
+                        </div>
+                        <div class="ui-sm-12 ui-g-11">
+
+
+                        </div>
+                    </div>
+                    <div class="ui-sm-12 ui-g-4 ui-g-nopad">
+                        <div class="ui-sm-12 ui-g-11">
+                            <p:inputSwitch value="#{selectBooleanView.value1}" />
+                        </div>
+                        <div class="ui-sm-12 ui-g-11">
+
+                        </div>
+                    </div>
+
+                </div>
+                <div class="ui-g ui-fluid">
+
+                    <div class="ui-sm-12 ui-g-8 ui-g-nopad">
+                        <div class="ui-sm-12 ui-g-11">
+                            <p:outputLabel  value="7.Erişim, bilgi güvenliği, kullanım, saklama ve imha konularında kurumsal politikalar hazırlanmış ve uygulamaya başlanmıştır. "/>
+                        </div>
+                        <div class="ui-sm-12 ui-g-11">
+
+
+                        </div>
+                    </div>
+                    <div class="ui-sm-12 ui-g-4 ui-g-nopad">
+                        <div class="ui-sm-12 ui-g-11">
+                            <p:inputSwitch value="#{selectBooleanView.value1}" />
+                        </div>
+                        <div class="ui-sm-12 ui-g-11">
+
+                        </div>
+                    </div>
+
+                </div>
+                <div class="ui-g ui-fluid">
+
+                    <div class="ui-sm-12 ui-g-8 ui-g-nopad">
+                        <div class="ui-sm-12 ui-g-11">
+                            <p:outputLabel  value="8.Özel nitelikli kişisel veri güvenliğine yönelik protokol ve prosedürler belirlenmiş ve uygulanmaktadır. "/>
+                        </div>
+                        <div class="ui-sm-12 ui-g-11">
+
+
+                        </div>
+                    </div>
+                    <div class="ui-sm-12 ui-g-4 ui-g-nopad">
+                        <div class="ui-sm-12 ui-g-11">
+                            <p:inputSwitch value="#{selectBooleanView.value1}" />
+                        </div>
+                        <div class="ui-sm-12 ui-g-11">
+
+                        </div>
+                    </div>
+
+                </div>
+                <div class="ui-g ui-fluid">
+
+                    <div class="ui-sm-12 ui-g-8 ui-g-nopad">
+                        <div class="ui-sm-12 ui-g-11">
+                            <p:outputLabel  value="9.Özel nitelikli kişisel veriler elektronik posta yoluyla gönderilecekse mutlaka şifreli olarak ve KEP veya kurumsal posta hesabı kullanılarak gönderilmektedir. "/>
+                        </div>
+                        <div class="ui-sm-12 ui-g-11">
+
+
+                        </div>
+                    </div>
+                    <div class="ui-sm-12 ui-g-4 ui-g-nopad">
+                        <div class="ui-sm-12 ui-g-11">
+                            <p:inputSwitch value="#{selectBooleanView.value1}" />
+                        </div>
+                        <div class="ui-sm-12 ui-g-11">
+
+                        </div>
+                    </div>
+
+                </div>
+
+
+
+            </p:panel>
+
+
+            <p:confirmDialog global="true" showEffect="fade" hideEffect="fade" styleClass="box-danger box-solid">
+                <p:commandButton value="Yes" type="button" styleClass="btn-material btn-primary ui-confirmdialog-yes"
+                                 icon="fa fa-check"/>
+                <p:commandButton value="No" type="button" styleClass="btn-material btn-danger ui-confirmdialog-no"
+                                 icon="fa fa-close"/>
+            </p:confirmDialog>
+        </h:form>
+
+
+
+        <section class="content-header" style="padding-left: 0px">
+            <h2>Fiziksel Güvenlik
+                <small> <a href="https://almsaeedstudio.com/themes/AdminLTE/index2.html" target="_blank"></a></small>
+            </h2>
+        </section>
+
+
+        <h:form id="form-2" prependId="false">
+            <p:focus context="@form"/>
+            <p:panel styleClass="box-primary card">
+                <div id="main-buttons2" class="hidden-sm hidden-xs">
+
+                </div>
+
+                <p:separator/>
+                <div class="ui-g ui-fluid">
+
+                    <div class="ui-sm-12 ui-g-8 ui-g-nopad">
+                        <div class="ui-sm-12 ui-g-11">
+                            <p:outputLabel  value="16.Kağıt yoluyla aktarılan kişisel veriler için ekstra güvenlik tedbirleri alınmakta ve ilgili evrak gizlilik dereceli belge formatında gönderilmektedir. "/>
+                        </div>
+                        <div class="ui-sm-12 ui-g-11">
+
+
+                        </div>
+                    </div>
+                    <div class="ui-sm-12 ui-g-4 ui-g-nopad">
+                        <div class="ui-sm-12 ui-g-11">
+                            <p:inputSwitch value="#{selectBooleanView.value1}" />
+                        </div>
+                        <div class="ui-sm-12 ui-g-11">
+
+                        </div>
+                    </div>
+
+                </div>
+                <div class="ui-g ui-fluid">
+
+                    <div class="ui-sm-12 ui-g-8 ui-g-nopad">
+                        <div class="ui-sm-12 ui-g-11">
+                            <p:outputLabel  value="17.Kişisel veri içeren fiziksel ortamlara giriş çıkışlarla ilgili gerekli güvenlik önlemleri alınmaktadır. "/>
+                        </div>
+                        <div class="ui-sm-12 ui-g-11">
+
+
+                        </div>
+                    </div>
+                    <div class="ui-sm-12 ui-g-4 ui-g-nopad">
+                        <div class="ui-sm-12 ui-g-11">
+                            <p:inputSwitch value="#{selectBooleanView.value1}" />
+                        </div>
+                        <div class="ui-sm-12 ui-g-11">
+
+                        </div>
+                    </div>
+
+                </div>
+
+            </p:panel>
+
+
+            <p:confirmDialog global="true" showEffect="fade" hideEffect="fade" styleClass="box-danger box-solid">
+                <p:commandButton value="Yes" type="button" styleClass="btn-material btn-primary ui-confirmdialog-yes"
+                                 icon="fa fa-check"/>
+                <p:commandButton value="No" type="button" styleClass="btn-material btn-danger ui-confirmdialog-no"
+                                 icon="fa fa-close"/>
+            </p:confirmDialog>
+        </h:form>
+
+
+
+        <section class="content-header" style="padding-left: 0px">
+            <h2>Teknik Tedbirler
+                <small> <a href="https://almsaeedstudio.com/themes/AdminLTE/index2.html" target="_blank"></a></small>
+            </h2>
+        </section>
+
+
+        <h:form id="form-3" prependId="false">
+            <p:focus context="@form"/>
+            <p:panel styleClass="box-primary card">
+
+
+                <p:separator/>
+                <div class="ui-g ui-fluid">
+
+                    <div class="ui-sm-12 ui-g-8 ui-g-nopad">
+                        <div class="ui-sm-12 ui-g-11">
+                            <p:outputLabel  value="21.Ağ güvenliği ve uygulama güvenliği sağlanmaktadır. "/>
+                        </div>
+                        <div class="ui-sm-12 ui-g-11">
+
+
+                        </div>
+                    </div>
+                    <div class="ui-sm-12 ui-g-4 ui-g-nopad">
+                        <div class="ui-sm-12 ui-g-11">
+                            <p:inputSwitch value="#{selectBooleanView.value1}" />
+                        </div>
+                        <div class="ui-sm-12 ui-g-11">
+
+                        </div>
+                    </div>
+
+                </div>
+                <div class="ui-g ui-fluid">
+
+                    <div class="ui-sm-12 ui-g-8 ui-g-nopad">
+                        <div class="ui-sm-12 ui-g-11">
+                            <p:outputLabel  value="22.Ağ yoluyla kişisel veri aktarımlarında kapalı sistem ağ kullanılmaktadır.  "/>
+                        </div>
+                        <div class="ui-sm-12 ui-g-11">
+
+
+                        </div>
+                    </div>
+                    <div class="ui-sm-12 ui-g-4 ui-g-nopad">
+                        <div class="ui-sm-12 ui-g-11">
+                            <p:inputSwitch value="#{selectBooleanView.value1}" />
+                        </div>
+                        <div class="ui-sm-12 ui-g-11">
+
+                        </div>
+                    </div>
+
+                </div>
+
+            </p:panel>
+
+
+            <p:confirmDialog global="true" showEffect="fade" hideEffect="fade" styleClass="box-danger box-solid">
+                <p:commandButton value="Yes" type="button" styleClass="btn-material btn-primary ui-confirmdialog-yes"
+                                 icon="fa fa-check"/>
+                <p:commandButton value="No" type="button" styleClass="btn-material btn-danger ui-confirmdialog-no"
+                                 icon="fa fa-close"/>
+            </p:confirmDialog>
+        </h:form>
+
+        <!-- /.row -->
+        <h:outputScript library="js" name="chart.min.js"/>
+
+
+    </ui:define>
+</ui:composition>

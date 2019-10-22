@@ -17,8 +17,7 @@
             <br/>
             <small>
                 <p:link  href="http://primefaces.org"/>
-                <p:link  style="font-size:15px; color:black;" value=" Vestibulum ante neque, ultricies ut lorem sed, ullamcorper molestie neque. Donec varius, orci nec tincidunt molestie, libero massa vulputate velit, dictum facilisis nisl nulla at massa. Ut ultricies velit et elit varius, eget tincidunt justo consectetur. Duis urna dui, varius eu ante et, bibendum ultrices metus. Etiam dignissim consequat justo eleifend finibus.
-"  href="http://getbootstrap.com/"/>
+                <p:link  style="font-size:15px; color:black;" value=" "  href="http://getbootstrap.com/"/>
 
             </small>
         </h2>
@@ -42,14 +41,14 @@
                     <p:focus context="@form"/>
                     <p:panel styleClass="box-primary card">
                         <div id="main-buttons" class="hidden-sm hidden-xs">
-                            <p:commandButton value="Save" action="#{samplePageMB.save}" update="@form" icon="fa fa-check"
+                            <p:commandButton value="Kaydet" action="#{samplePageMB.save}" update="@form" icon="fa fa-check"
                                              styleClass="btn-primary"/>
                             <p:spacer width="5" rendered="#{samplePageMB.isNew()}"/>
                             <p:commandButton value="Clear" action="#{samplePageMB.clear}" process="@this"
                                              icon="fa fa-refresh" styleClass="btn-success" update="@form"
                                              rendered="#{samplePageMB.isNew()}" resetValues="true"/>
                             <p:spacer width="5" rendered="#{not samplePageMB.isNew()}"/>
-                            <p:commandButton value="Delete" action="#{samplePageMB.remove}" process="@this" update="@form"
+                            <p:commandButton value="Temizle" action="#{samplePageMB.remove}" process="@this" update="@form"
                                              rendered="#{not samplePageMB.isNew()}" icon="fa fa-trash"
                                              styleClass="btn-danger">
                                 <f:setPropertyActionListener value="true"
@@ -57,7 +56,7 @@
                                 <p:confirm header="Confirmation" message="Are you sure?" icon="ui-icon-danger"/>
                             </p:commandButton>
                             <p:spacer width="5"/>
-                            <p:commandButton value="Back" immediate="true" styleClass="btn-default"
+                            <p:commandButton value="Geri" immediate="true" styleClass="btn-default"
                                              action="/index?faces-redirect=true" process="@this"
                                              icon="fa fa-reply"/>
                         </div>
@@ -65,14 +64,14 @@
                                        styleClass="hidden-md hidden-lg btn-primary">
                             <p:menuitem value="Clear" action="#{samplePageMB.clear}" process="@this" update="@form"
                                         rendered="#{samplePageMB.isNew()}" resetValues="true" icon="fa fa-refresh"/>
-                            <p:menuitem value="Delete" action="#{samplePageMB.remove}" process="@this" update="@form"
+                            <p:menuitem value="Temizle" action="#{samplePageMB.remove}" process="@this" update="@form"
                                         rendered="#{not samplePageMB.isNew()}" icon="fa fa-trash">
                                 <f:setPropertyActionListener value="true"
                                                              target="#{facesContext.externalContext.flash.keepMessages}"/>
                                 <p:confirm header="Confirmation" message="Are you sure?" icon="ui-icon-danger"/>
                             </p:menuitem>
                             <p:separator/>
-                            <p:menuitem value="Back" action="/index?faces-redirect=true" process="@this"
+                            <p:menuitem value="Geri" action="/index?faces-redirect=true" process="@this"
                                         immediate="true" styleClass="btn-default" icon="fa fa-reply"/>
                         </p:splitButton>
                         <p:separator/>
@@ -169,14 +168,14 @@
 
                     <p:panel styleClass="box-primary card">
                         <div id="main-buttons12" class="hidden-sm hidden-xs">
-                            <p:commandButton value="Save" action="#{samplePageMB.save}" update="@form" icon="fa fa-check"
+                            <p:commandButton value="Kaydet" action="#{samplePageMB.save}" update="@form" icon="fa fa-check"
                                              styleClass="btn-primary"/>
                             <p:spacer width="5" rendered="#{samplePageMB.isNew()}"/>
                             <p:commandButton value="Clear" action="#{samplePageMB.clear}" process="@this"
                                              icon="fa fa-refresh" styleClass="btn-success" update="@form"
                                              rendered="#{samplePageMB.isNew()}" resetValues="true"/>
                             <p:spacer width="5" rendered="#{not samplePageMB.isNew()}"/>
-                            <p:commandButton value="Delete" action="#{samplePageMB.remove}" process="@this" update="@form"
+                            <p:commandButton value="Temizle" action="#{samplePageMB.remove}" process="@this" update="@form"
                                              rendered="#{not samplePageMB.isNew()}" icon="fa fa-trash"
                                              styleClass="btn-danger">
                                 <f:setPropertyActionListener value="true"
@@ -184,7 +183,7 @@
                                 <p:confirm header="Confirmation" message="Are you sure?" icon="ui-icon-danger"/>
                             </p:commandButton>
                             <p:spacer width="5"/>
-                            <p:commandButton value="Back" immediate="true" styleClass="btn-default"
+                            <p:commandButton value="Geri" immediate="true" styleClass="btn-default"
                                              action="/index?faces-redirect=true" process="@this"
                                              icon="fa fa-reply"/>
                         </div>
@@ -256,6 +255,149 @@
                 </section>
                 <p:spacer height="15px"/>
 
+                <h:form id="form1321" prependId="false">
+                    <p:focus context="@form"/>
+                    <p:panel styleClass="box-primary card">
+                        <div id="main-buttonsasd" class="hidden-sm hidden-xs">
+                            <p:commandButton value="Kaydet" action="#{carFormMB.save}" update="@form"
+                                             icon="fa fa-check" styleClass="btn-primary"/>
+                            <p:spacer width="5" rendered="#{carFormMB.isNew()}"/>
+                            <p:commandButton value="Temizle" action="#{carFormMB.clear}" process="@this"
+                                             icon="fa fa-refresh" styleClass="btn-success"
+                                             update="@form" rendered="#{carFormMB.isNew()}" resetValues="true"/>
+                            <p:spacer width="5" rendered="#{not carFormMB.isNew()}"/>
+
+                            <p:commandButton value="Temizle" action="#{carFormMB.remove}" process="@this"
+                                             rendered="#{not carFormMB.isNew()}" icon="fa fa-trash"
+                                             styleClass="btn-danger">
+                                <f:setPropertyActionListener value="true"
+                                                             target="#{facesContext.externalContext.flash.keepMessages}"/>
+                                <p:confirm header="Confirmation" message="Are you sure?" icon="ui-icon-danger"/>
+                            </p:commandButton>
+                            <p:spacer width="5"/>
+                            <p:commandButton value="Geri" immediate="true"
+                                             action="car-list?faces-redirect=true"
+                                             process="@this"
+                                             icon="fa fa-reply"/>
+                        </div>
+                        <p:splitButton value="Kaydet" action="#{carFormMB.save}" update="@form"
+                                       icon="fa fa-check"
+                                       styleClass="hidden-md hidden-lg btn-primary">
+                            <p:menuitem value="Reset" action="#{carFormMB.clear}"
+                                        process="@this" update="@form" rendered="#{carFormMB.isNew()}"
+                                        resetValues="true" icon="fa fa-refresh"/>
+                            <p:menuitem value="Temizle" action="#{carFormMB.remove}" process="@this"
+                                        rendered="#{not carFormMB.isNew()}" icon="fa fa-trash">
+                                <f:setPropertyActionListener value="true"
+                                                             target="#{facesContext.externalContext.flash.keepMessages}"/>
+                                <p:confirm header="Confirmation" message="Are you sure?" icon="ui-icon-danger"/>
+                            </p:menuitem>
+                            <p:separator/>
+                            <p:menuitem value="Geri" action="car-list?faces-redirect=true"
+                                        process="@this" immediate="true"
+                                        icon="fa fa-reply"/>
+                        </p:splitButton>
+
+                        <hr/>
+
+                        <div class="ui-g ui-fluid" style="padding-left:50px;padding-right:50px; padding-top:20px; padding-bottom:20px;">
+
+                            <div class="ui-sm-12 ui-g-4 ui-g-nopad">
+                                <div class="ui-sm-12 ui-g-11">
+                                    <p:outputLabel value="İsim" for="inptModel"/>
+                                </div>
+                                <div class="ui-sm-12 ui-g-11" >
+                                    <p:inputText id="inptModel" value="#{carFormMB.car.model}" required="true"/>
+                                    <span class="help-block">
+                                <p:message for="inptModel" />
+                            </span>
+                                </div>
+                            </div>
+                            <div class="ui-sm-12 ui-g-4 ui-g-nopad">
+                                <div class="ui-sm-12 ui-g-11">
+                                    <p:outputLabel value="Soyisim" for="inptName"/>
+                                </div>
+                                <div class="ui-sm-12 ui-g-11" >
+                                    <p:inputText id="inptName" value="#{carFormMB.car.name}" required="true"/>
+                                    <span class="help-block">
+                                <p:message for="inptName" />
+                            </span>
+                                </div>
+                            </div>
+
+                            <div class="ui-sm-12 ui-g-4 ui-g-nopad">
+                                <div class="ui-sm-12 ui-g-11">
+                                    <p:outputLabel value="Şirket" for="inptName"/>
+                                </div>
+                                <div class="ui-sm-12 ui-g-11" >
+                                    <p:selectOneMenu id="city" value="#{dropdownView.city}" >
+                                        <f:selectItem itemLabel="Şirket Seçiniz" itemValue="" noSelectionOption="true" />
+                                        <f:selectItems value="Deneme" />
+                                    </p:selectOneMenu>
+                                    <span class="help-block">
+
+                            </span>
+                                </div>
+                            </div>
+
+
+                            <div class="ui-sm-12 ui-g-6 ui-g-nopad">
+                                <div class="ui-sm-12 ui-g-11">
+                                    <p:outputLabel value="Email" for="inptPrice"/>
+                                </div>
+                                <div class="ui-sm-12 ui-g-11" >
+                                    <p:inputText id="inptPrice" value="" required="true"/>
+                                    <span class="help-block">
+                                <p:message for="inptPrice" />
+                            </span>
+                                </div>
+                            </div>
+
+                            <div class="ui-sm-12 ui-g-6 ui-g-nopad">
+                                <div class="ui-sm-12 ui-g-11">
+                                    <p:outputLabel value="Parola" for="inptPrice"/>
+                                </div>
+                                <div class="ui-sm-12 ui-g-11" >
+
+                            <span class="help-block">
+                                 <p:password id="feedback" value="" feedback="true" />
+                            </span>
+                                </div>
+                            </div>
+
+
+
+                        </div>
+                        <h:panelGroup id="footer" layout="block" styleClass="hidden-sm hidden-md hidden-lg">
+                            <hr/>
+                            <p:splitButton value="Kaydet" action="#{carFormMB.save}" update="@form"
+                                           icon="fa fa-check"
+                                           styleClass="hidden-md hidden-lg btn-primary">
+                                <p:menuitem value="Reset" action="#{carFormMB.clear}"
+                                            process="@this" update="@form" rendered="#{carFormMB.isNew()}"
+                                            resetValues="true" icon="fa fa-refresh"/>
+                                <p:menuitem value="Temizle" action="#{carFormMB.remove}" process="@this"
+                                            rendered="#{not carFormMB.isNew()}" icon="fa fa-trash">
+                                    <f:setPropertyActionListener value="true"
+                                                                 target="#{facesContext.externalContext.flash.keepMessages}"/>
+                                    <p:confirm header="Confirmation" message="Are you sure?" icon="ui-icon-danger"/>
+                                </p:menuitem>
+                                <p:separator/>
+                                <p:menuitem value="Back" action="car-list?faces-redirect=true"
+                                            process="@this" immediate="true"
+                                            icon="fa fa-reply"/>
+                            </p:splitButton>
+                        </h:panelGroup>
+                    </p:panel>
+
+                    <p:confirmDialog global="true" showEffect="fade" hideEffect="fade" styleClass="box-danger box-solid">
+                        <p:commandButton value="Yes" type="button" styleClass="btn-material btn-primary ui-confirmdialog-yes"
+                                         icon="fa fa-check"/>
+                        <p:commandButton value="No" type="button" styleClass="btn-material btn-danger ui-confirmdialog-no"
+                                         icon="fa fa-close"/>
+                    </p:confirmDialog>
+                </h:form>
+
 
 
             </p:tab>
@@ -269,6 +411,286 @@
                 </section>
                 <p:spacer height="15px"/>
 
+
+                <h:form id="form23423" prependId="false">
+                    <p:focus context="@form"/>
+                    <p:panel styleClass="box-primary card">
+
+                        <p:splitButton value="Kaydet" action="#{samplePageMB.save}" update="@form" icon="fa fa-check"
+                                       styleClass="hidden-md hidden-lg btn-primary">
+                            <p:menuitem value="Clear" action="#{samplePageMB.clear}" process="@this" update="@form"
+                                        rendered="#{samplePageMB.isNew()}" resetValues="true" icon="fa fa-refresh"/>
+                            <p:menuitem value="Temizle" action="#{samplePageMB.remove}" process="@this" update="@form"
+                                        rendered="#{not samplePageMB.isNew()}" icon="fa fa-trash">
+                                <f:setPropertyActionListener value="true"
+                                                             target="#{facesContext.externalContext.flash.keepMessages}"/>
+                                <p:confirm header="Confirmation" message="Are you sure?" icon="ui-icon-danger"/>
+                            </p:menuitem>
+                            <p:separator/>
+                            <p:menuitem value="Geri" action="/index?faces-redirect=true" process="@this"
+                                        immediate="true" styleClass="btn-default" icon="fa fa-reply"/>
+                        </p:splitButton>
+
+
+                        <div class="ui-g ui-fluid">
+
+                        <div class="ui-sm-12 ui-g-6 ui-g-nopad">
+                        <div class="ui-sm-12 ui-g-11">
+                            <h4><strong>Ücretsiz(30 Gün)</strong></h4>
+                            <p><strong>Başlangıç Tarihi :</strong> 13.06.2019</p>   <p><strong>Bitiş Tarihi :</strong> 14.07.2019</p>
+
+                        </div>
+                        </div>
+
+                        <div class="ui-sm-12 ui-g-6 ui-g-nopad">
+                        <div class="ui-sm-12 ui-g-11">
+                            <div class="ui-sm-12 ui-g-6 ui-g-nopad" ><h4 class="text-blue">Kalan Gün Sayısı :12</h4> </div>
+
+                            <p:button value="Üyelik Planı Değiştir" onclick="PF('dlgPrimary').show();return false" update="@form" icon="fa fa-check"
+                                             styleClass="btn-primary"/>
+
+                            <p:dialog header="Üyelik Planı Değiştir" styleClass="box-primary" widgetVar="dlgPrimary" minHeight="400" minwidth="400" modal="true"
+                                      appendTo="@(body)">
+                                <h:outputText value="Resistance to PrimeFaces is futile!"/>
+                            </p:dialog>
+
+
+                        </div>
+                        </div>
+                        </div>
+
+
+                    </p:panel>
+
+
+
+                    <br></br>
+                    <br></br>
+
+                    <section class="content-header" style="padding-left: 0px">
+                        <h1>Ödeme
+                            <small> <a href="https://almsaeedstudio.com/themes/AdminLTE/index2.html" target="_blank"></a></small>
+                        </h1>
+                    </section>
+                    <p:spacer height="15px"/>
+                    <p:panel styleClass="box-primary card">
+
+                        <p:splitButton value="Kaydet" action="#{samplePageMB.save}" update="@form" icon="fa fa-check"
+                                       styleClass="hidden-md hidden-lg btn-primary">
+                            <p:menuitem value="Clear" action="#{samplePageMB.clear}" process="@this" update="@form"
+                                        rendered="#{samplePageMB.isNew()}" resetValues="true" icon="fa fa-refresh"/>
+                            <p:menuitem value="Temizle" action="#{samplePageMB.remove}" process="@this" update="@form"
+                                        rendered="#{not samplePageMB.isNew()}" icon="fa fa-trash">
+                                <f:setPropertyActionListener value="true"
+                                                             target="#{facesContext.externalContext.flash.keepMessages}"/>
+                                <p:confirm header="Confirmation" message="Are you sure?" icon="ui-icon-danger"/>
+                            </p:menuitem>
+                            <p:separator/>
+                            <p:menuitem value="Geri" action="/index?faces-redirect=true" process="@this"
+                                        immediate="true" styleClass="btn-default" icon="fa fa-reply"/>
+                        </p:splitButton>
+
+
+                        <div class="ui-g ui-fluid">
+
+                            <div class="ui-sm-12 ui-g-6 ui-g-nopad">
+                                <div class="ui-sm-12 ui-g-11">
+                                    <p:commandButton value="Ödeme Yöntemi" onclick="PF('dlgPrimary2').show();return false" update="@form" icon="fa fa-credit-card"
+                                                     styleClass="btn-primary"/>
+
+                                    <p:dialog header="Ödeme Yöntemi" styleClass="box-primary" widgetVar="dlgPrimary2" minHeight="400" minwidth="400" modal="true"
+                                              appendTo="@(body)">
+                                        <h:outputText value="Ödeme"/>
+                                    </p:dialog>
+
+
+
+                                </div>
+                            </div>
+
+                            <div class="ui-sm-12 ui-g-6 ui-g-nopad">
+                                <div class="ui-sm-12 ui-g-11">
+
+
+
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </p:panel>
+
+
+                    <p:confirmDialog global="true" showEffect="fade" hideEffect="fade" styleClass="box-danger box-solid">
+                        <p:commandButton value="Yes" type="button" styleClass="btn-material btn-primary ui-confirmdialog-yes"
+                                         icon="fa fa-check"/>
+                        <p:commandButton value="No" type="button" styleClass="btn-material btn-danger ui-confirmdialog-no"
+                                         icon="fa fa-close"/>
+                    </p:confirmDialog>
+                </h:form>
+
+<br>
+</br>
+                <br></br>
+
+
+                <section class="content-header" style="padding-left: 0px">
+                    <h1>Fatura Bilgileri
+                        <small> <a href="https://almsaeedstudio.com/themes/AdminLTE/index2.html" target="_blank"></a></small>
+                    </h1>
+                </section>
+                <p:spacer height="15px"/>
+
+                <h:form id="form1321as" prependId="false">
+
+                    <p:focus context="@form"/>
+                    <p:panel styleClass="box-primary card">
+                        <div id="main-buttonsasda21" class="hidden-sm hidden-xs">
+                            <p:commandButton value="Kaydet" action="#{carFormMB.save}" update="@form"
+                                             icon="fa fa-check" styleClass="btn-primary"/>
+                            <p:spacer width="5" rendered="#{carFormMB.isNew()}"/>
+                            <p:commandButton value="Temizle" action="#{carFormMB.clear}" process="@this"
+                                             icon="fa fa-refresh" styleClass="btn-success"
+                                             update="@form" rendered="#{carFormMB.isNew()}" resetValues="true"/>
+                            <p:spacer width="5" rendered="#{not carFormMB.isNew()}"/>
+
+                            <p:commandButton value="Temizle" action="#{carFormMB.remove}" process="@this"
+                                             rendered="#{not carFormMB.isNew()}" icon="fa fa-trash"
+                                             styleClass="btn-danger">
+                                <f:setPropertyActionListener value="true"
+                                                             target="#{facesContext.externalContext.flash.keepMessages}"/>
+                                <p:confirm header="Confirmation" message="Are you sure?" icon="ui-icon-danger"/>
+                            </p:commandButton>
+                            <p:spacer width="5"/>
+                            <p:commandButton value="Geri" immediate="true"
+                                             action="car-list?faces-redirect=true"
+                                             process="@this"
+                                             icon="fa fa-reply"/>
+                        </div>
+                        <p:splitButton value="Kaydet" action="#{carFormMB.save}" update="@form"
+                                       icon="fa fa-check"
+                                       styleClass="hidden-md hidden-lg btn-primary">
+                            <p:menuitem value="Reset" action="#{carFormMB.clear}"
+                                        process="@this" update="@form" rendered="#{carFormMB.isNew()}"
+                                        resetValues="true" icon="fa fa-refresh"/>
+                            <p:menuitem value="Temizle" action="#{carFormMB.remove}" process="@this"
+                                        rendered="#{not carFormMB.isNew()}" icon="fa fa-trash">
+                                <f:setPropertyActionListener value="true"
+                                                             target="#{facesContext.externalContext.flash.keepMessages}"/>
+                                <p:confirm header="Confirmation" message="Are you sure?" icon="ui-icon-danger"/>
+                            </p:menuitem>
+                            <p:separator/>
+                            <p:menuitem value="Geri" action="car-list?faces-redirect=true"
+                                        process="@this" immediate="true"
+                                        icon="fa fa-reply"/>
+                        </p:splitButton>
+
+                        <hr/>
+                        <div class="ui-g ui-fluid" style="padding-left:10px;padding-right:10px; padding-top:5px; padding-bottom:5px;">
+
+                            <div class="ui-sm-12 ui-g-4 ui-g-nopad">
+                                <div class="ui-sm-12 ui-g-11">
+                                    <p:outputLabel value="Firma İsmi" for="inptModel2"/>
+                                </div>
+                                <div class="ui-sm-12 ui-g-11" >
+                                    <p:inputText id="inptModel2" value="#{carFormMB.car.model}" required="true"/>
+                                    <span class="help-block">
+                                <p:message for="inptModel2" />
+                            </span>
+                                </div>
+                            </div>
+                            <div class="ui-sm-12 ui-g-8 ui-g-nopad">
+                                <div class="ui-sm-12 ui-g-11">
+                                    <p:outputLabel value="Adres" for="inptName2"/>
+                                </div>
+                                <div class="ui-sm-12 ui-g-11" >
+                                    <p:inputText id="inptName2" value="#{carFormMB.car.name}" required="true"/>
+                                    <span class="help-block">
+                                <p:message for="inptName2" />
+                            </span>
+                                </div>
+                            </div>
+
+                            <div class="ui-sm-12 ui-g-4 ui-g-nopad">
+                                <div class="ui-sm-12 ui-g-11">
+                                    <p:outputLabel value="İl" for="inptName2"/>
+                                </div>
+                                <div class="ui-sm-12 ui-g-11" >
+                                    <p:selectOneMenu id="İl" value="#{dropdownView.city}" >
+                                        <f:selectItem itemLabel="İl Seçiniz" itemValue="" noSelectionOption="true" />
+                                        <f:selectItems value="Deneme" />
+                                    </p:selectOneMenu>
+                                    <span class="help-block">
+
+                            </span>
+                                </div>
+                            </div>
+
+
+                            <div class="ui-sm-12 ui-g-4 ui-g-nopad">
+                                <div class="ui-sm-12 ui-g-11">
+                                    <p:outputLabel value="İlçe" for="ilce"/>
+                                </div>
+                                <div class="ui-sm-12 ui-g-11" >
+                                    <p:selectOneMenu id="ilce" value="#{dropdownView.city}" >
+                                        <f:selectItem itemLabel="İlçe Seçiniz" itemValue="" noSelectionOption="true" />
+                                        <f:selectItems value="Deneme" />
+                                    </p:selectOneMenu>
+                                    <span class="help-block">
+
+                            </span>
+                                </div>
+                            </div>
+                            <div class="ui-sm-12 ui-g-4 ui-g-nopad">
+                                <div class="ui-sm-12 ui-g-11">
+                                    <p:outputLabel value="Ülke" for="ülke"/>
+                                </div>
+                                <div class="ui-sm-12 ui-g-11" >
+                                    <p:selectOneMenu id="ülke" value="#{dropdownView.city}" >
+                                        <f:selectItem itemLabel="Ülke Seçiniz" itemValue="" noSelectionOption="true" />
+                                        <f:selectItems value="Deneme" />
+                                    </p:selectOneMenu>
+                                    <span class="help-block">
+
+                            </span>
+                                </div>
+                            </div>
+
+
+
+
+
+                        </div>
+
+                        <h:panelGroup id="footers" layout="block" styleClass="hidden-sm hidden-md hidden-lg">
+                            <hr/>
+                            <p:splitButton value="Kaydet" action="#{carFormMB.save}" update="@form"
+                                           icon="fa fa-check"
+                                           styleClass="hidden-md hidden-lg btn-primary">
+                                <p:menuitem value="Reset" action="#{carFormMB.clear}"
+                                            process="@this" update="@form" rendered="#{carFormMB.isNew()}"
+                                            resetValues="true" icon="fa fa-refresh"/>
+                                <p:menuitem value="Temizle" action="#{carFormMB.remove}" process="@this"
+                                            rendered="#{not carFormMB.isNew()}" icon="fa fa-trash">
+                                    <f:setPropertyActionListener value="true"
+                                                                 target="#{facesContext.externalContext.flash.keepMessages}"/>
+                                    <p:confirm header="Confirmation" message="Are you sure?" icon="ui-icon-danger"/>
+                                </p:menuitem>
+                                <p:separator/>
+                                <p:menuitem value="Back" action="car-list?faces-redirect=true"
+                                            process="@this" immediate="true"
+                                            icon="fa fa-reply"/>
+                            </p:splitButton>
+                        </h:panelGroup>
+                    </p:panel>
+
+                    <p:confirmDialog global="true" showEffect="fade" hideEffect="fade" styleClass="box-danger box-solid">
+                        <p:commandButton value="Yes" type="button" styleClass="btn-material btn-primary ui-confirmdialog-yes"
+                                         icon="fa fa-check"/>
+                        <p:commandButton value="No" type="button" styleClass="btn-material btn-danger ui-confirmdialog-no"
+                                         icon="fa fa-close"/>
+                    </p:confirmDialog>
+                </h:form>
 
 
             </p:tab>
