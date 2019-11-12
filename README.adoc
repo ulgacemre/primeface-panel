@@ -1,4 +1,4 @@
-= Veriko - Panel
+= Primeface - Panel
 
 It should run in any JavaEE 6 or greater application server.
 
